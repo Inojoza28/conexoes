@@ -1,25 +1,20 @@
 # Hub de Conexões | Gabriel Inojoza
 
-Este projeto é um **hub pessoal** que centraliza meus links e informações profissionais e criativas. Nele você encontra:
-
-- **Animação interativa de partículas** com efeitos dinâmicos e tecnológicos (usando Particles.js);
-- **Efeito de máquina de escrever** para a exibição do nome, seguido por uma "onda verde" que realça cada caractere;
-- **Modo Dark/Light** com persistência via `localStorage` e um elegante botão de toggle;
-- Layout **minimalista** e **responsivo** com cards para redes sociais e um modal para ampliar a foto de perfil.
+Este projeto é um **hub pessoal** que centraliza meus links e informações profissionais e criativas. Ele integra elementos modernos e interativos, como animações de partículas, um efeito de máquina de escrever com correção e onda de cor, e um design responsivo que se adapta a diversos dispositivos.
 
 ## Funcionalidades
 
 - **Animação de Partículas:**  
-  O fundo do header apresenta partículas animadas que se conectam por linhas sutis, com opacidade e movimento dinâmico. Inicialmente, as partículas aparecem discretamente e, após a conclusão da animação do texto, tornam-se mais visíveis para dar um toque tecnológico.
+  O fundo do header apresenta partículas animadas com linhas sutis e efeitos de opacidade pulsante. Inicialmente, as partículas aparecem de forma discreta e, após a conclusão da animação de texto, tornam-se mais visíveis para reforçar um toque tecnológico.
 
 - **Efeito Typewriter com Onda Verde:**  
-  O nome "Gabriel Inojosa" é digitado com um efeito de máquina de escrever. Em seguida, ocorre uma correção ("sa" é apagado e "za" é digitado) e, ao finalizar, são adicionados os símbolos `</` e `>`. Cada caractere passa por uma breve alteração de cor (onda verde) antes de voltar à cor padrão.
+  O nome "Gabriel Inojoza" é digitado com um efeito de máquina de escrever. Em seguida, ocorre uma correção (apaga "sa" e digita "za") e são inseridos os símbolos `</` e `>`. Cada caractere passa por um breve efeito em que fica temporariamente verde (onda verde) antes de retornar à cor original.
+
+- **Cards Responsivos para Redes Sociais:**  
+  Os **cards** são elementos interativos que redirecionam para suas principais redes sociais (LinkedIn, GitHub, Instagram e Linktree). Eles foram projetados de forma responsiva, garantindo uma ótima exibição em dispositivos móveis e desktops, com animações suaves ao serem exibidos e efeitos de destaque ao passar o mouse.
 
 - **Modo Dark/Light:**  
-  Um botão de toggle permite alternar entre os temas escuro e claro. O estado escolhido é salvo no `localStorage`, garantindo que o usuário mantenha sua preferência ao recarregar a página.
-
-- **Layout Responsivo:**  
-  O design se adapta a diferentes tamanhos de tela, com animação de entrada dos elementos (cards e seções), criando uma experiência de usuário agradável e fluida.
+  Um elegante botão de toggle permite alternar entre o tema escuro e claro. A preferência do usuário é salva no `localStorage`, garantindo que o tema escolhido seja mantido mesmo após o recarregamento da página.
 
 - **Modal para Foto de Perfil:**  
   Ao clicar na foto de perfil, um modal é exibido com uma versão ampliada da imagem, permitindo uma visualização detalhada.
@@ -34,4 +29,4 @@ Este projeto é um **hub pessoal** que centraliza meus links e informações pro
 1. **Clone ou Baixe o Projeto:**
 
    ```bash
-   git clone https://github.com/inojoza28/conexoes.git
+   git clone https://github.com/seu-usuario/seu-repositorio.git
