@@ -29,4 +29,4 @@ Este projeto é um **hub pessoal** que centraliza meus links e informações pro
 1. **Clone ou Baixe o Projeto:**
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/inojoza28/conexoes.git
