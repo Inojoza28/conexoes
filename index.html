@@ -20,6 +20,9 @@
     rel="stylesheet"
   />
 
+  <!-- Particles.js (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -28,11 +31,14 @@
 
   <!-- Header -->
   <header class="header">
+    <!-- Partículas ficam dentro do header, cobrindo o fundo -->
+    <div id="particles-js"></div>
+
     <div class="header-content">
       <!-- Título (será animado via JS) -->
       <h1 class="typed-title" id="typedTitle"></h1>
-      
-      <!-- Troque 'sua-foto.jpg' pela imagem do seu perfil -->
+
+      <!-- Foto de Perfil -->
       <img src="imgs/Gabriel-Inojoza.jpg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
     </div>
   </header>
@@ -40,6 +46,11 @@
   <!-- Seção de introdução -->
   <section class="intro-section">
     <p>👋 Conecte-se comigo através das principais plataformas digitais. Explore meus projetos profissionais, trabalhos criativos e redes sociais — tudo em um único lugar.</p>
+
+    <!-- Botão de Toggle de Tema (agora na Intro) -->
+    <button class="theme-toggle" id="themeToggle">
+      Tema <i class="fas fa-moon" id="themeToggleIcon"></i>
+    </button>
   </section>
 
   <!-- Container de Cards -->
@@ -71,7 +82,7 @@
   <!-- MODAL PARA FOTO AMPLIADA -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-content">
-      <!-- Caso queira uma imagem de maior resolução, aponte para outro src -->
+      <!-- Caso queira outra imagem de maior resolução, aponte aqui -->
       <img src="imgs/Gabriel-Inojoza.jpg" alt="Foto Ampliada" id="modalImg">
       <div class="close-btn" id="closeModal">&times;</div>
     </div>

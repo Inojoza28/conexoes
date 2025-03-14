@@ -1,4 +1,4 @@
-    // ================================
+  // ================================
     // BARRA DE PROGRESSO DO SCROLL
     // ================================
     window.addEventListener('scroll', () => {
@@ -22,6 +22,9 @@
     window.addEventListener('load', () => {
       document.body.style.opacity = '1';
       document.body.style.transform = 'translateY(0)';
+      // Carrega o tema (dark/light) que está no localStorage
+      loadTheme();
+      // Inicia a animação de texto
       typeWriterEffect();
     });
 
@@ -132,8 +135,137 @@
         rightBracket.classList.add('bubble-bracket', 'right-bracket');
         rightBracket.textContent = ' >';
 
-        // Insere no DOM (um no início, outro no fim)
+        // Insere no DOM
         typedTitleEl.prepend(leftBracket);
         typedTitleEl.appendChild(rightBracket);
       }
     }
+
+    // ================================
+    // TOGGLE DE TEMA (DARK/LIGHT)
+    // ================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleIcon = document.getElementById('themeToggleIcon');
+    let isDarkMode = false;
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        isDarkMode = true;
+        // Altera ícone para sol
+        themeToggleIcon.classList.remove('fa-moon');
+        themeToggleIcon.classList.add('fa-sun');
+      }
+    }
+
+    function toggleTheme() {
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        themeToggleIcon.classList.remove('fa-moon');
+        themeToggleIcon.classList.add('fa-sun');
+      } else {
+        document.documentElement.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        themeToggleIcon.classList.remove('fa-sun');
+        themeToggleIcon.classList.add('fa-moon');
+      }
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // ================================
+    // CONFIGURAÇÃO DO PARTICLES.JS
+    // ================================
+    // Exemplifica partículas mais dinâmicas (múltiplas cores, efeitos de bubble e grab)
+     window.addEventListener('load', () => {
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          /* Aumentamos a quantidade para dar mais “densidade” */
+          "value": 100,
+          "density": {
+            "enable": true,
+            "value_area": 900
+          }
+        },
+        "color": {
+          "value": ["#00ff7f", "#00ffff"]
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          /* Mantemos variação aleatória (valores até ~0.7) */
+          "value": 0.7,
+          "random": true
+        },
+        "size": {
+          /* Ligeiramente maior e também randômico */
+          "value": 3.5,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          /* Um pouco mais de distância para variar a rede */
+          "distance": 140,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          /* Velocidade um pouco maior e randomização de direção */
+          "speed": 3,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          /* Mescla “grab” e “bubble” ao hover */
+          "onhover": {
+            "enable": true,
+            "mode": ["grab", "bubble"]
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 150,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            /* Aumentamos um pouco o size e distance */
+            "distance": 160,
+            "size": 6,
+            "duration": 2,
+            "opacity": 0.8,
+            "speed": 3
+          },
+          "repulse": {
+            /* Maior distância de repulsão ao clicar */
+            "distance": 200,
+            "duration": 0.4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  });
