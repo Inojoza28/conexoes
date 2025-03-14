@@ -1,4 +1,4 @@
-  // ================================
+    // ================================
     // BARRA DE PROGRESSO DO SCROLL
     // ================================
     window.addEventListener('scroll', () => {
@@ -17,14 +17,17 @@
     });
 
     // ================================
-    // ANIMAÇÃO DE APARIÇÃO DO BODY
+    // MODO DARK E ANIMAÇÃO DE APARIÇÃO DO BODY
     // ================================
     window.addEventListener('load', () => {
+      // 1) Carrega o tema
+      loadTheme();
+      // 2) Exibe o body
       document.body.style.opacity = '1';
       document.body.style.transform = 'translateY(0)';
-      // Carrega o tema (dark/light) que está no localStorage
-      loadTheme();
-      // Inicia a animação de texto
+      // 3) Inicia Particles (carregadas desde o início, mas com opacidade reduzida)
+      initParticles();
+      // 4) Animação de texto
       typeWriterEffect();
     });
 
@@ -48,18 +51,106 @@
     });
 
     // ================================
-    // EFEITO "MÁQUINA DE ESCREVER" + "BOLHA"
+    // INICIALIZA PARTÍCULAS
+    // (deixa opacidade menor no container, p/ efeito mais fraco no início)
+    // ================================
+    function initParticles() {
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 60,
+        "density": {
+          "enable": true,
+          "value_area": 900
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 1,
+          "opacity_min": 0.2,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 4,
+          "size_min": 0.3,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 160,
+        "color": "#ffffff",
+        "opacity": 0.15,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2.5,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 150,
+          "line_linked": {
+            "opacity": 0.5
+          }
+        }
+      }
+    },
+    "retina_detect": true
+  });
+}
+
+    // ================================
+    // EFEITO "MÁQUINA DE ESCREVER" + ONDA VERDE
     // ================================
     const typedTitleEl = document.getElementById('typedTitle');
 
     function typeWriterEffect() {
       /*
-        Passos:
         1) Digita "Gabriel Inojosa"
         2) Apaga 2 letras ("sa"), ficando "Gabriel Inojo"
         3) Digita "za", virando "Gabriel Inojoza"
         4) Mantém "Gabriel Inojoza"
         5) Aparece "</ " e " >" com efeito de bolha
+        6) Onda verde caractere a caractere
+        7) Após onda verde, aumentamos opacidade das partículas
       */
 
       const textFull = "Gabriel Inojosa";
@@ -67,10 +158,10 @@
       let currentText = "";
       let index = 0;
 
-      const typingSpeed = 150;    // Velocidade ao digitar
-      const backspaceSpeed = 90;  // Velocidade ao apagar
-      const pauseBeforeBackspace = 600;  // Pausa antes de começar a apagar
-      const pauseAfterCorrection = 500;  // Pausa antes de inserir os "<" e ">"
+      const typingSpeed = 150;
+      const backspaceSpeed = 90;
+      const pauseBeforeBackspace = 600;
+      const pauseAfterCorrection = 500;
 
       // 1) Digitar "Gabriel Inojosa"
       const typeInterval = setInterval(() => {
@@ -80,17 +171,15 @@
 
         if (index === textFull.length) {
           clearInterval(typeInterval);
-          // Espera e começa a apagar
           setTimeout(backspaceAction, pauseBeforeBackspace);
         }
       }, typingSpeed);
 
       // 2) Apagar 2 letras => "sa"
       function backspaceAction() {
-        let backspaceCount = 2; // apaga 2 caracteres
+        let backspaceCount = 2;
         const backspaceInterval = setInterval(() => {
           if (backspaceCount > 0) {
-            // Remove o último caractere
             currentText = currentText.slice(0, -1);
             typedTitleEl.innerHTML = currentText;
             backspaceCount--;
@@ -102,7 +191,6 @@
         }, backspaceSpeed);
       }
 
-      // 3) Digitar "za"
       function typeCorrection() {
         let correctionIndex = 0;
         const correctionInterval = setInterval(() => {
@@ -112,21 +200,17 @@
 
           if (correctionIndex === correction.length) {
             clearInterval(correctionInterval);
-            // Espera e finaliza com símbolos
+            // 4) Já está "Gabriel Inojoza"
             setTimeout(insertAngleBrackets, pauseAfterCorrection);
           }
         }, typingSpeed);
       }
 
-      // 4) Aparecem "</ " e " >" com efeito “bolha”
+      // 5) Insere "</ " e " >" com bolha
       function insertAngleBrackets() {
-        // Remove o cursor do typewriter
         typedTitleEl.style.borderRight = "none";
-
-        // Reescreve o texto final (garantia)
         typedTitleEl.textContent = currentText;
 
-        // Cria brackets com animação bubblePop
         const leftBracket = document.createElement('span');
         leftBracket.classList.add('bubble-bracket', 'left-bracket');
         leftBracket.textContent = '</ ';
@@ -135,10 +219,48 @@
         rightBracket.classList.add('bubble-bracket', 'right-bracket');
         rightBracket.textContent = ' >';
 
-        // Insere no DOM
         typedTitleEl.prepend(leftBracket);
         typedTitleEl.appendChild(rightBracket);
+
+        // 6) Onda verde
+        setTimeout(() => waveColorEffect(), 500);
       }
+    }
+
+    // Onda verde: cada caractere fica verde e depois volta
+    function waveColorEffect() {
+      const text = typedTitleEl.textContent; // ex. "</ Gabriel Inojoza >"
+      typedTitleEl.innerHTML = "";
+
+      // Cria spans p/ cada char
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        typedTitleEl.appendChild(span);
+      }
+
+      const spans = typedTitleEl.querySelectorAll('span');
+      spans.forEach((charSpan, i) => {
+        setTimeout(() => {
+          // Acende verde
+          charSpan.style.color = "limegreen";
+          // Depois de 150ms, volta ao normal
+          setTimeout(() => {
+            charSpan.style.color = "";
+            // Se for último caractere, aumentamos opacidade das partículas
+            if (i === spans.length - 1) {
+              rampUpParticles();
+            }
+          }, 150);
+        }, i * 70);
+      });
+    }
+
+    // 7) Depois da onda verde, deixamos as partículas mais visíveis
+    function rampUpParticles() {
+      const particlesContainer = document.getElementById('particles-js');
+      /* Subimos a opacidade de 0.3 para 1, dando um ar mais "tech" */
+      particlesContainer.style.opacity = "1";
     }
 
     // ================================
@@ -153,7 +275,6 @@
       if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
         isDarkMode = true;
-        // Altera ícone para sol
         themeToggleIcon.classList.remove('fa-moon');
         themeToggleIcon.classList.add('fa-sun');
       }
@@ -175,97 +296,3 @@
     }
 
     themeToggle.addEventListener('click', toggleTheme);
-
-    // ================================
-    // CONFIGURAÇÃO DO PARTICLES.JS
-    // ================================
-    // Exemplifica partículas mais dinâmicas (múltiplas cores, efeitos de bubble e grab)
-     window.addEventListener('load', () => {
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          /* Aumentamos a quantidade para dar mais “densidade” */
-          "value": 100,
-          "density": {
-            "enable": true,
-            "value_area": 900
-          }
-        },
-        "color": {
-          "value": ["#00ff7f", "#00ffff"]
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          /* Mantemos variação aleatória (valores até ~0.7) */
-          "value": 0.7,
-          "random": true
-        },
-        "size": {
-          /* Ligeiramente maior e também randômico */
-          "value": 3.5,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          /* Um pouco mais de distância para variar a rede */
-          "distance": 140,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          /* Velocidade um pouco maior e randomização de direção */
-          "speed": 3,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          /* Mescla “grab” e “bubble” ao hover */
-          "onhover": {
-            "enable": true,
-            "mode": ["grab", "bubble"]
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 150,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            /* Aumentamos um pouco o size e distance */
-            "distance": 160,
-            "size": 6,
-            "duration": 2,
-            "opacity": 0.8,
-            "speed": 3
-          },
-          "repulse": {
-            /* Maior distância de repulsão ao clicar */
-            "distance": 200,
-            "duration": 0.4
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  });
