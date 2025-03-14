@@ -355,7 +355,6 @@
   display: none; /* Invisível por padrão */
   align-items: flex-start; /* Alinha no topo */
   justify-content: center; /* Centraliza horizontalmente */
-  padding-top: 5rem; /* Espaçamento maior do topo */
   z-index: 2000; /* Acima de tudo */
 }
 
@@ -372,14 +371,14 @@
 .modal-content img {
   display: block;
   width: 90%;
-  margin: 0 auto;
+  margin: 5rem auto;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 .close-btn {
   position: absolute;
-  top: -10px;
+  top: 65px;
   right: 15px;
   background: #fff;
   color: #000;
