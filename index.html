@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hub de Conexões | Gabriel Inojoza</title>
+
+  <!-- Font Awesome para ícones -->
+  <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ===============================
+       RESET E FONTES
+    =============================== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* Impede scroll horizontal */
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+      /* Cores principais */
+      --primary-text: #2d3436;
+      --secondary-text: #636e72;
+      --bg-default: #f8f9fa;
+      --transition-default: 0.3s ease;
+
+      /* Cores de layout */
+      --header-gradient: linear-gradient(135deg, #1c1f26, #2b2f3a); /* Gradiente escuro */
+      --footer-bg: #f1f3f5;
+      --border-color: rgba(0, 0, 0, 0.1);
+
+      /* Espaçamentos */
+      --section-padding: 2rem;
+      --card-gap: 1.5rem;
+    }
+
+    /* ===============================
+       BODY
+    =============================== */
+    body {
+      background: var(--bg-default);
+      color: var(--primary-text);
+      line-height: 1.6;
+
+      /* Animação inicial de aparição */
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    /* ===============================
+       SCROLL PROGRESS BAR
+    =============================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0077b5, #833ab4);
+      z-index: 999;
+      transition: width 0.3s ease-out;
+    }
+
+    /* ===============================
+       HEADER
+    =============================== */
+    .header {
+      background: var(--header-gradient); /* Mantido escuro */
+      position: relative;
+      padding: var(--section-padding) 1.5rem 3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    /* Efeito “onda” ao fim do Header */
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;    /* Fica ao fundo na base do header */
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #fff;
+      opacity: 0.1; 
+      /* Forma de onda usando clip-path */
+      clip-path: polygon(
+        0 68%, 
+        23% 74%, 
+        45% 67%, 
+        67% 80%, 
+        85% 76%, 
+        100% 82%, 
+        100% 100%, 
+        0 100%
+      );
+      pointer-events: none;
+    }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Nome animado via máquina de escrever */
+    .typed-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin: 0;
+      z-index: 1;
+      white-space: nowrap; /* Impede quebra de linha no efeito */
+      border-right: 2px solid #fff; /* Cursor do "typewriter" */
+      overflow: hidden;
+    }
+
+    /* Foto de perfil */
+    .profile-pic {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .profile-pic:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* ===============================
+       INTRO SECTION
+    =============================== */
+    .intro-section {
+      text-align: center;
+      padding: var(--section-padding) 1.5rem;
+      max-width: 650px;
+      margin: -1rem auto -2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.7s 0.3s forwards;
+    }
+
+    .intro-section p {
+      color: var(--secondary-text);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
+    /* ===============================
+       CARDS DE REDES SOCIAIS
+    =============================== */
+    .cards-container {
+      padding: 1rem;
+      max-width: 650px;
+      margin: 0 auto 4rem; /* Espaço p/ footer */
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 1.2rem 1.5rem;
+      margin: var(--card-gap) 0;
+      border-radius: 16px;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      opacity: 0;   /* Animação de entrada */
+      transform: translateY(20px);
+      animation: cardEntrance 0.5s forwards;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .social-card i {
+      font-size: 1.4rem;
+      margin-right: 1rem;
+      z-index: 2;
+      transition: transform var(--transition-default);
+    }
+    .social-card span {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      z-index: 2;
+    }
+    /* Hover => destaque */
+    .social-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    .social-card:hover i {
+      transform: scale(1.1);
+    }
+    /* Brilho diagonal no hover */
+    .social-card:hover::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.12), transparent);
+      transform: rotate(45deg);
+      animation: shine 1.2s;
+    }
+
+    @keyframes shine {
+      0%   { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%)  rotate(45deg); }
+    }
+
+    /* Gradientes para cada rede */
+    .linkedin {
+      background: linear-gradient(135deg, #006699, #00a0dc);
+    }
+    .github {
+      background: linear-gradient(135deg, #24292e, #4a4a4a);
+    }
+    .instagram {
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    }
+    .linktree {
+      background: linear-gradient(135deg, #39b54a, #02844d);
+    }
+
+    /* ===============================
+       FOOTER
+    =============================== */
+    .footer {
+      background: var(--footer-bg);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      padding: 1rem 1.5rem;
+      position: relative;
+      z-index: 1000;
+    }
+    .footer p {
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* ===============================
+       MODAL PARA FOTO AMPLIADA
+    =============================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none; /* Invisível por padrão */
+      align-items: center;
+      justify-content: center;
+      z-index: 2000; /* Acima de tudo */
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      position: relative;
+      /* Limite máximo para não ficar grande demais */
+      max-width: 600px; 
+      max-height: 80%;
+      width: auto;
+      height: auto;
+    }
+    .modal-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .close-btn {
+      position: absolute;
+      top: -10px; right: -10px;
+      background: #fff;
+      color: #000;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: flex;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background var(--transition-default);
+      font-weight: bold;
+    }
+    .close-btn:hover {
+      background: #f5f5f5;
+    }
+
+    /* ===============================
+       ANIMAÇÕES GERAIS
+    =============================== */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes cardEntrance {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 
+       BUBBLE POP para as tags 
+       que aparecem depois da digitação
+    */
+    @keyframes bubblePop {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+      }
+      80% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    .bubble-bracket {
+      display: inline-block;
+      animation: bubblePop 0.4s ease-out forwards;
+    }
+    .left-bracket {
+      margin-right: 4px;
+    }
+    .right-bracket {
+      margin-left: 4px;
+    }
+
+    /* ===============================
+       MEDIA QUERIES
+    =============================== */
+    @media (min-width: 768px) {
+      .header {
+        padding: 2.5rem 1.5rem 3rem;
+      }
+      .header-content {
+        padding: 0 2rem;
+      }
+      .profile-pic {
+        width: 80px; height: 80px;
+      }
+      .intro-section {
+        padding: 3rem 2rem 2rem;
+      }
+      .social-card {
+        padding: 1.5rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de progresso do scroll -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <!-- Título (será animado via JS) -->
+      <h1 class="typed-title" id="typedTitle"></h1>
+      
+      <!-- Troque 'sua-foto.jpg' pela imagem do seu perfil -->
+      <img src="sua-foto.jpg" alt="Foto de Perfil" class="profile-pic" id="profilePic">
+    </div>
+  </header>
+
+  <!-- Seção de introdução -->
+  <section class="intro-section">
+    <p>👋 Conecte-se comigo através das principais plataformas digitais. Explore meus projetos profissionais, trabalhos criativos e redes sociais — tudo em um único lugar.</p>
+  </section>
+
+  <!-- Container de Cards -->
+  <div class="cards-container">
+    <!-- Exemplos de cards com tempo de delay para animação sequencial -->
+    <a href="#" class="social-card linkedin" style="animation-delay: 0.2s;">
+      <i class="fab fa-linkedin"></i>
+      <span>LinkedIn Profissional</span>
+    </a>
+    <a href="#" class="social-card github" style="animation-delay: 0.35s;">
+      <i class="fab fa-github"></i>
+      <span>GitHub Code Hub</span>
+    </a>
+    <a href="#" class="social-card instagram" style="animation-delay: 0.5s;">
+      <i class="fab fa-instagram"></i>
+      <span>Instagram Criativo</span>
+    </a>
+    <a href="#" class="social-card linktree" style="animation-delay: 0.65s;">
+      <i class="fas fa-tree"></i>
+      <span>Linktree Central</span>
+    </a>
+  </div>
+
+  <!-- Footer Minimalista -->
+  <footer class="footer">
+    <p>© 2025 | Desenvolvido por Gabriel Inojoza</p>
+  </footer>
+
+  <!-- MODAL PARA FOTO AMPLIADA -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <!-- Caso queira uma imagem de maior resolução, aponte para outro src -->
+      <img src="sua-foto.jpg" alt="Foto Ampliada" id="modalImg">
+      <div class="close-btn" id="closeModal">&times;</div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // ================================
+    // BARRA DE PROGRESSO DO SCROLL
+    // ================================
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgress').style.width = scrolled + '%';
+    });
+
+    // ================================
+    // ANIMAÇÃO SEQUENCIAL DOS CARDS
+    // ================================
+    document.querySelectorAll('.social-card').forEach((card, index) => {
+      const delay = 0.2 + index * 0.15;
+      card.style.animationDelay = `${delay}s`;
+    });
+
+    // ================================
+    // ANIMAÇÃO DE APARIÇÃO DO BODY
+    // ================================
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+      document.body.style.transform = 'translateY(0)';
+      typeWriterEffect();
+    });
+
+    // ================================
+    // MODAL DA FOTO DE PERFIL
+    // ================================
+    const profilePic = document.getElementById('profilePic');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModal = document.getElementById('closeModal');
+
+    profilePic.addEventListener('click', () => {
+      modalOverlay.classList.add('active');
+    });
+    closeModal.addEventListener('click', () => {
+      modalOverlay.classList.remove('active');
+    });
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+      }
+    });
+
+    // ================================
+    // EFEITO "MÁQUINA DE ESCREVER" + "BOLHA"
+    // ================================
+    const typedTitleEl = document.getElementById('typedTitle');
+
+    function typeWriterEffect() {
+      /*
+        Passos:
+        1) Digita "Gabriel Inojosa"
+        2) Apaga 2 letras ("sa"), ficando "Gabriel Inojo"
+        3) Digita "za", virando "Gabriel Inojoza"
+        4) Mantém "Gabriel Inojoza"
+        5) Aparece "</ " e " >" com efeito de bolha
+      */
+
+      const textFull = "Gabriel Inojosa";
+      const correction = "za";
+      let currentText = "";
+      let index = 0;
+
+      const typingSpeed = 150;    // Velocidade ao digitar
+      const backspaceSpeed = 90;  // Velocidade ao apagar
+      const pauseBeforeBackspace = 600;  // Pausa antes de começar a apagar
+      const pauseAfterCorrection = 500;  // Pausa antes de inserir os "<" e ">"
+
+      // 1) Digitar "Gabriel Inojosa"
+      const typeInterval = setInterval(() => {
+        currentText += textFull[index];
+        typedTitleEl.innerHTML = currentText;
+        index++;
+
+        if (index === textFull.length) {
+          clearInterval(typeInterval);
+          // Espera e começa a apagar
+          setTimeout(backspaceAction, pauseBeforeBackspace);
+        }
+      }, typingSpeed);
+
+      // 2) Apagar 2 letras => "sa"
+      function backspaceAction() {
+        let backspaceCount = 2; // apaga 2 caracteres
+        const backspaceInterval = setInterval(() => {
+          if (backspaceCount > 0) {
+            // Remove o último caractere
+            currentText = currentText.slice(0, -1);
+            typedTitleEl.innerHTML = currentText;
+            backspaceCount--;
+          } else {
+            clearInterval(backspaceInterval);
+            // 3) Digitar "za"
+            typeCorrection();
+          }
+        }, backspaceSpeed);
+      }
+
+      // 3) Digitar "za"
+      function typeCorrection() {
+        let correctionIndex = 0;
+        const correctionInterval = setInterval(() => {
+          currentText += correction[correctionIndex];
+          typedTitleEl.innerHTML = currentText;
+          correctionIndex++;
+
+          if (correctionIndex === correction.length) {
+            clearInterval(correctionInterval);
+            // Espera e finaliza com símbolos
+            setTimeout(insertAngleBrackets, pauseAfterCorrection);
+          }
+        }, typingSpeed);
+      }
+
+      // 4) Aparecem "</ " e " >" com efeito “bolha”
+      function insertAngleBrackets() {
+        // Remove o cursor do typewriter
+        typedTitleEl.style.borderRight = "none";
+
+        // Reescreve o texto final (garantia)
+        typedTitleEl.textContent = currentText;
+
+        // Cria brackets com animação bubblePop
+        const leftBracket = document.createElement('span');
+        leftBracket.classList.add('bubble-bracket', 'left-bracket');
+        leftBracket.textContent = '</ ';
+
+        const rightBracket = document.createElement('span');
+        rightBracket.classList.add('bubble-bracket', 'right-bracket');
+        rightBracket.textContent = ' >';
+
+        // Insere no DOM (um no início, outro no fim)
+        typedTitleEl.prepend(leftBracket);
+        typedTitleEl.appendChild(rightBracket);
+      }
+    }
+  </script>
+</body>
+</html>
