@@ -420,7 +420,7 @@
         opacity: 0;
       }
       80% {
-        transform: scale(1.2);
+        transform: scale(1.4);
         opacity: 1;
       }
       100% {
