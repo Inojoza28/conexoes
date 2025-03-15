@@ -160,7 +160,7 @@
 
       const typingSpeed = 150;
       const backspaceSpeed = 90;
-      const pauseBeforeBackspace = 600;
+      const pauseBeforeBackspace =550;
       const pauseAfterCorrection = 500;
 
       // 1) Digitar "Gabriel Inojosa"
