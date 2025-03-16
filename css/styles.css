@@ -260,7 +260,7 @@ body {
 .cards-container {
   padding: 1.4rem;
   max-width: 650px;
-  margin: 0 auto 4rem; /* Espaço p/ footer */
+  margin: 0 auto 3rem; /* Espaço p/ footer */
 }
 
 .social-card {
