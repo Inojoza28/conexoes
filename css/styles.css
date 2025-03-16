@@ -235,7 +235,7 @@
       color: #555;
       background: transparent;
       border: 2px solid #ddd;
-      border-radius: 50px;
+      border-radius: 16px;
       padding: 0.5rem 5.5rem;
       transition: background var(--transition-default),
         color var(--transition-default), border-color var(--transition-default);
