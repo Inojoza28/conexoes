@@ -492,4 +492,10 @@
       .social-card {
         padding: 1.5rem 1.8rem;
       }
+      :root.dark-mode .theme-toggle:hover {
+        background: #333;
+      }
+      .theme-toggle:hover {
+        background: #e9ecef;
+      }
     }
