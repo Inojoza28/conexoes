@@ -232,12 +232,12 @@
       position: relative; /* Para posicionar o pseudo-elemento */
       cursor: pointer;
       font-size: 1.1rem;
-      margin-top: 0.8rem;
+      margin-top: 0.7rem;
       color: #444;
       background: transparent;
       border: 2px solid #ccccccd5;
       border-radius: 12px;
-      padding: 0.5rem 5rem;
+      padding: 0.4rem 2rem;
       overflow: hidden; /* Evita que o efeito ultrapasse os limites do botão */
       transition: background var(--transition-default), 
                   color var(--transition-default), 
