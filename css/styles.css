@@ -229,16 +229,58 @@
     
     /* Botão Toggle de Tema (na intro) */
     .theme-toggle {
+      position: relative; /* Para posicionar o pseudo-elemento */
       cursor: pointer;
       font-size: 1.1rem;
       margin-top: 0.8rem;
-      color: #444; 
+      color: #444;
       background: transparent;
-      border: 2px solid #ccccccd5; 
-      border-radius: 12px; 
-      padding: 0.5rem 5rem; 
-      transition: background var(--transition-default),
-        color var(--transition-default), border-color var(--transition-default);
+      border: 2px solid #ccccccd5;
+      border-radius: 12px;
+      padding: 0.5rem 5rem;
+      overflow: hidden; /* Evita que o efeito ultrapasse os limites do botão */
+      transition: background var(--transition-default), 
+                  color var(--transition-default), 
+                  border-color var(--transition-default),
+                  transform 0.1s ease-out;
+    }
+    
+    /* Efeito de "pressionado" no botão */
+    .theme-toggle:active {
+      transform: scale(0.97);
+    }
+    
+    /* Criação do pseudo-elemento para o efeito ripple */
+    .theme-toggle::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      pointer-events: none; /* Impede que interfira na interação */
+      will-change: transform, opacity;
+    }
+    
+    /* Ao clicar, dispara a animação ripple */
+    .theme-toggle:active::after {
+      animation: ripple 0.6s ease-out;
+    }
+    
+    /* Definição dos keyframes para a animação ripple */
+    @keyframes ripple {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
     }
     
     :root.dark-mode .theme-toggle {
@@ -488,6 +530,9 @@
       }
       .intro-section {
         padding: 3rem 2rem 2rem;
+      }
+      .intro-section p{
+        font-size: 1.1rem;
       }
       .social-card {
         padding: 1.5rem 1.8rem;
