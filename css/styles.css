@@ -237,7 +237,7 @@
       background: transparent;
       border: 2px solid #ccccccd5;
       border-radius: 12px;
-      padding: 0.4rem 2rem;
+      padding: 0.5rem 2rem;
       overflow: hidden; /* Evita que o efeito ultrapasse os limites do botão */
       transition: background var(--transition-default), 
                   color var(--transition-default), 
