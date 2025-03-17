@@ -240,15 +240,10 @@
       transition: background var(--transition-default),
         color var(--transition-default), border-color var(--transition-default);
     }
-    .theme-toggle:hover {
-      background: #e9ecef;
-    }
+    
     :root.dark-mode .theme-toggle {
       color: #ccc;
       border-color: #666;
-    }
-    :root.dark-mode .theme-toggle:hover {
-      background: #333;
     }
     
     .theme-toggle i {
