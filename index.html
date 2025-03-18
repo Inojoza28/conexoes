@@ -2,30 +2,29 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="keywords" content="Gabriel Inojoza, links sociais, contato profissional, portfólio pessoal, redes oficiais, perfil LinkedIn, projetos GitHub, Instagram criativo">
-  <meta name="description" content="Hub pessoal de Gabriel Inojoza | Acesso rápido ao meu LinkedIn profissional, projetos no GitHub, portfólio no Instagram e todos os meus links relevantes para conexão direta.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords"
+    content="Gabriel Inojoza, links sociais, contato profissional, portfólio pessoal, redes oficiais, perfil LinkedIn, projetos GitHub, Instagram criativo">
+  <meta name="description"
+    content="Hub pessoal de Gabriel Inojoza | Acesso rápido ao meu LinkedIn profissional, projetos no GitHub, portfólio no Instagram e todos os meus links relevantes para conexão direta.">
   <meta name="author" content="Gabriel Inojoza">
   <meta name="theme-color" content="#1c1f26">
   <link rel="icon" href="imgs/Logo.png">
   <title>Hub de Conexões | Gabriel Inojoza</title>
   <!-- Font Awesome para ícones -->
-  <link 
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet" />
 
   <!-- Particles.js (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
+  <link rel="stylesheet" href="css/skill.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <!-- Barra de progresso do scroll -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -46,7 +45,8 @@
 
   <!-- Seção de introdução -->
   <section class="intro-section">
-    <p>👋 Conecte-se comigo nas principais plataformas digitais e descubra meus projetos, trabalhos criativos e redes sociais.</p>
+    <p>👋 Conecte-se comigo nas principais plataformas digitais e descubra meus projetos, trabalhos criativos e redes
+      sociais.</p>
 
     <!-- Botão de Toggle de Tema -->
     <button class="theme-toggle" id="themeToggle">
@@ -56,33 +56,82 @@
 
   <!-- Container de Cards -->
   <div class="cards-container">
-    <a href="https://www.linkedin.com/in/gabrielinojoza/" class="social-card linkedin" target="_blank" style="animation-delay: 0.2s;">
+
+    <!-- Card: Linkedin Profissional -->
+    <a href="https://www.linkedin.com/in/gabrielinojoza/" class="social-card linkedin" target="_blank"
+      style="animation-delay: 0.2s;">
       <i class="fab fa-linkedin"></i>
       <span>LinkedIn Profissional</span>
     </a>
+
+    <!-- Card: Github Code Hub -->
     <a href="https://github.com/Inojoza28" class="social-card github" target="_blank" style="animation-delay: 0.35s;">
       <i class="fab fa-github"></i>
       <span>GitHub Code Hub</span>
     </a>
-    <a href="https://www.instagram.com/dev_inojoza_/" class="social-card instagram" target="_blank" style="animation-delay: 0.5s;">
+
+    <!-- Card: Instagram {Dev} -->
+    <a href="https://www.instagram.com/dev_inojoza_/" class="social-card instagram" target="_blank"
+      style="animation-delay: 0.5s;">
       <i class="fab fa-instagram"></i>
       <span>Instagram {Dev}</span>
     </a>
-    <a href="https://linktr.ee/dev_inojoza_" class="social-card linktree" target="_blank" style="animation-delay: 0.65s;">
+
+    <!-- Card: Linktree Central -->
+    <a href="https://linktr.ee/dev_inojoza_" class="social-card linktree" target="_blank"
+      style="animation-delay: 0.65s;">
       <i class="fas fa-tree"></i>
       <span>Linktree Central</span>
     </a>
+
+    <!-- Card: Email Profissional -->
     <a href="mailto:carlosginojoza@gmail.com" class="social-card email" target="_blank" style="animation-delay: 0.8s;">
       <i class="fas fa-envelope"></i>
       <span>Email Profissional</span>
-    </a>    
-    
+    </a>
+
+    <!-- Card: Skill Map – CSS e JS separados para facilitar a manutenção -->
+    <a href="#" class="social-card skill-map" onclick="openSkillMapModal()" style="animation-delay: 0.95s;">
+      <i class="fas fa-map"></i>
+      <span>Skill Map</span>
+    </a>
+
+    <!-- Card: Monte Seu Hub -->
+    <a href="https://github.com/Inojoza28/conexoes" class="social-card opensource" target="_blank"
+      style="animation-delay: 1.1s;">
+      <div class="card-content">
+        <i class="fas fa-cubes"></i>
+        <span>Monte Seu Hub</span>
+      </div>
+      <div class="hub-cta">
+        <span>⭐ Adapte do seu jeito</span> <!-- Atualize com dados reais -->
+        <span>🚀 Clone no GitHub</span>
+      </div>
+    </a>
   </div>
 
-  <!-- Footer Minimalista -->
-  <footer class="footer">
-    <p>© 2025 | Desenvolvido por Gabriel Inojoza</p>
-  </footer>
+    <!-- MODAL PARA O SKILL MAP -->
+    <div class="skill-modal" id="skillModal">
+      <div class="skill-modal-content">
+        <button class="close-modal" onclick="closeSkillMapModal()">&times;</button>
+
+        <div class="image-container">
+          <img src="imgs/SkillMap.png" alt="Skill Map" id="skillMapImage">
+
+          <div class="download-info">
+            <p class="download-text">
+              Baixe o meu Skill Map e acesse meus projetos clicando nos cards das hard-skills
+            </p>
+
+            <div class="modal-actions">
+              <a href="pdfs/SkillsMap.pdf" download="SkillMap-Gabriel-Inojoza.pdf" class="download-btn">
+                <i class="fas fa-file-pdf"></i> Baixar PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <!-- MODAL PARA FOTO AMPLIADA -->
   <div class="modal-overlay" id="modalOverlay">
@@ -92,7 +141,14 @@
     </div>
   </div>
 
+  <!-- Footer Minimalista -->
+  <footer class="footer">
+    <p>© 2025 | Desenvolvido por Gabriel Inojoza</p>
+  </footer>
+
   <!-- Scripts -->
-  <script src="js/script.js"></script>
+   <script src="js/SkillModal.js"></script>
+   <script src="js/script.js"></script>
 </body>
+
 </html>
