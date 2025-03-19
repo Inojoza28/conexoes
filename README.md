@@ -207,7 +207,7 @@ Este projeto está sob a licença [MIT](LICENSE), permitindo que você use, copi
 ---
 
 ## Autor
-| [![Foto de Perfil](imgs/Gabriel-Inojoza.jpg "Foto de Perfil")](https://www.linkedin.com/in/gabrielinojoza/) |
+| [![Foto de Perfil](<img src="imgs/Gabriel-Inojoza.jpg" width="120" alt="Foto de Perfil">)](https://www.linkedin.com/in/gabrielinojoza/) |
 |---|
 | **[Gabriel Inojoza](https://linktr.ee/dev_inojoza_)** |
 
