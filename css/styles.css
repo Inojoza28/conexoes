@@ -603,3 +603,13 @@ body {
     padding: 1.5rem 1.8rem;
   }
 }
+
+@media (max-width: 335px) {
+  .typed-title{
+    font-size: 1.2rem;
+  }
+  .profile-pic{
+    width: 46px;
+    height: 46px;
+  }
+}
