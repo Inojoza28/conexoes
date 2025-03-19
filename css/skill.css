@@ -76,7 +76,7 @@
   
   /* ===================== IMAGEM PRINCIPAL ===================== */
   #skillMapImage {
-    max-width: 100%;
+    max-width: 80%;
     max-height: 70vh;
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -133,7 +133,7 @@
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.2rem 3rem;
+    padding: 1rem 4rem;
     background: var(--gradient-primary);
     color: white;
     border-radius: 60px;
@@ -197,6 +197,7 @@
     }
   
     #skillMapImage {
+      max-width: 100%;
       max-height: 60vh;
     }
   
