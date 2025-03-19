@@ -1,4 +1,4 @@
-# Hub de Conexões do [@dev_inojoza_](https://linktr.ee/dev_inojoza_)
+# Hub de Conexões do [@dev_inojoza_](https://inojoza28.github.io/conexoes)
 
 Bem-vindo(a)! Este repositório contém um projeto simples e elegante para criar um **hub pessoal de conexões** com suas principais redes sociais, projetos, links de contato e outras informações relevantes. A proposta é ter uma página única, responsiva e personalizável para facilitar o compartilhamento de seus links em qualquer lugar.
 
@@ -64,7 +64,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 1. **Clonar o Repositório**
    ```bash
-   git clone https://github.com/SEU-USUARIO/conexoes.git
+   git clone https://github.com/inojoza28/conexoes.git
    ```
    ou baixe o arquivo `.zip` diretamente e extraia em seu computador.
 
@@ -149,8 +149,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 │   └── skill.css
 ├── js
 │   ├── script.js
-│   ├── SkillModal.js
-│   └── skill.js
+│   └── SkillModal.js
 ├── imgs
 │   ├── Logo.png
 │   ├── Gabriel-Inojoza.jpg
