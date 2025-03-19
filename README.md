@@ -1,4 +1,4 @@
-# Hub de Conexões do [@dev_inojoza_](https://inojoza28.github.io/conexoes)
+# 🚀 Hub de Conexões do [@dev_inojoza_](https://inojoza28.github.io/conexoes)
 
 Bem-vindo(a)! Este repositório contém um projeto simples e elegante para criar um **hub pessoal de conexões** com suas principais redes sociais, projetos, links de contato e outras informações relevantes. A proposta é ter uma página única, responsiva e personalizável para facilitar o compartilhamento de seus links em qualquer lugar.
 
@@ -18,7 +18,7 @@ Bem-vindo(a)! Este repositório contém um projeto simples e elegante para criar
 
 ---
 
-## Visão Geral
+## 📌 Visão Geral
 Este projeto foi criado para servir como uma **landing page** pessoal onde você pode:
 
 - Reunir links profissionais, redes sociais e contatos em um só lugar.
@@ -60,7 +60,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 ---
 
-## Como Utilizar
+## 🛠️ Como Utilizar
 
 1. **Clonar o Repositório**
    ```bash
@@ -82,7 +82,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 ---
 
-## Personalização
+## 🧩 Personalização
 
 ### Alterando Foto e Nome
 - No arquivo `index.html`, localize:
@@ -201,12 +201,12 @@ Contribuições são bem-vindas! Se você deseja melhorar algo, siga os passos:
 
 ---
 
-## Licença
+## 📄 Licença
 Este projeto está sob a licença [MIT](LICENSE), permitindo que você use, copie, modifique e distribua livremente, desde que mantenha os direitos autorais e a licença original.
 
 ---
 
-## Autor
+## 🤝 Autor
 | <img src="imgs/Gabriel-Inojoza.jpg" width="220" alt="Foto de Perfil"> |
 |---|
 | **[Gabriel Inojoza](https://linktr.ee/dev_inojoza_)** |
@@ -215,6 +215,6 @@ Sinta-se à vontade para me contatar pelo **[LinkedIn](https://www.linkedin.com/
 
 ---
 
-**Obrigado por visitar meu hub!**  
+**🚀 Obrigado por visitar meu hub! 🙌**  
 Siga personalizando e criando seu próprio espaço de conexões.
 ```
