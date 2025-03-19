@@ -4,7 +4,7 @@ Bem-vindo(a)! Este repositório contém um projeto simples e elegante para criar
 
 ---
 
-## Índice
+## 📑 Índice
 - [Visão Geral](#visão-geral)
 - [Demonstração](#demonstração)
 - [Recursos Principais](#recursos-principais)
@@ -30,7 +30,7 @@ A página é **leve**, utiliza poucas dependências externas e foi desenvolvida 
 
 ---
 
-## Demonstração
+## 📲 Demonstração
 Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 - Um **header** com partículas animadas ao fundo (via `particles.js`).
@@ -42,7 +42,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 ---
 
-## Recursos Principais
+## ❇️ Recursos Principais
 1. **Efeito de Partículas**  
    Utiliza [particles.js](https://github.com/VincentGarreau/particles.js/) para criar um fundo com partículas leves, conferindo um aspecto tecnológico.
 2. **Tema Escuro/Claro**  
@@ -139,7 +139,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 ---
 
-## Estrutura de Pastas
+## 🗂️ Estrutura de Pastas
 
 ```
 .
@@ -167,7 +167,7 @@ Ao abrir o arquivo `index.html` em seu navegador, você verá:
 
 ---
 
-## Tecnologias Empregadas
+## 💻 Tecnologias Empregadas
 
 - **HTML5** e **CSS3**: Estruturação e estilo.
 - **JavaScript** (Vanilla):
@@ -181,7 +181,7 @@ Não há uso de frameworks JS pesados, garantindo leveza e velocidade de carrega
 
 ---
 
-## Contribuindo
+## 🤝 Contribuindo
 Contribuições são bem-vindas! Se você deseja melhorar algo, siga os passos:
 
 1. Faça um **fork** do repositório.
@@ -206,7 +206,7 @@ Este projeto está sob a licença [MIT](LICENSE), permitindo que você use, copi
 
 ---
 
-## 🤝 Autor
+## 👨🏽‍💻 Autor
 | <img src="imgs/Gabriel-Inojoza.jpg" width="220" alt="Foto de Perfil"> |
 |---|
 | **[Gabriel Inojoza](https://linktr.ee/dev_inojoza_)** |
