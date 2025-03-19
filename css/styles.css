@@ -604,23 +604,23 @@ body {
   }
 }
 
-@media (max-width: 335px) {
+@media (max-width: 344px) {
   /* Titulo do header */
   .typed-title{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   /* Foto de perfil do header  */
   .profile-pic{
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
   }
   /* paragrafo logo apos o header  */
   .intro-section p{
-    font-size: 0.9rem;
+    font-size: 0.93rem;
   }
   /* botão dark  */
   .theme-toggle {
-    font-size: 0.8rem;
+    font-size: 0.83rem;
   }
   /* CARDS  */
   .social-card{
