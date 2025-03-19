@@ -605,11 +605,33 @@ body {
 }
 
 @media (max-width: 335px) {
+  /* Titulo do header */
   .typed-title{
     font-size: 1.2rem;
   }
+  /* Foto de perfil do header  */
   .profile-pic{
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
   }
+  /* paragrafo logo apos o header  */
+  .intro-section p{
+    font-size: 0.9rem;
+  }
+  /* botão dark  */
+  .theme-toggle {
+    font-size: 0.8rem;
+  }
+  /* CARDS  */
+  .social-card{
+    padding: 0.9rem 1rem;
+  }
+  /* tamanho do botão de download PDF  */
+  .download-btn {
+    padding: 0.6rem 3rem;
+}
+/* texto do campo de skill  */
+.download-text {
+  font-size: 0.9rem;
+}
 }
