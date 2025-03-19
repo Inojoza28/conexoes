@@ -179,11 +179,11 @@ body {
 
 /* Ícone do perfil */
 .profile-pic {
-  width: 54px;
-  height: 54px;
+  width: 53px;
+  height: 53px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
