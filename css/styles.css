@@ -179,8 +179,8 @@ body {
 
 /* Ícone do perfil */
 .profile-pic {
-  width: 52.5px;
-  height: 52.5px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #fff;
