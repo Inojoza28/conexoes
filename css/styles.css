@@ -335,8 +335,8 @@ body {
 
 .social-card span {
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1.08rem;
+  font-weight: 400;
+  font-size: 1.05rem;
   z-index: 2;
 }
 
@@ -612,12 +612,12 @@ body {
 @media (max-width: 344px) {
   /* Titulo do header */
   .typed-title{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   /* Foto de perfil do header  */
   .profile-pic{
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
   }
   /* paragrafo logo apos o header  */
   .intro-section p{
@@ -632,7 +632,7 @@ body {
     padding: 1rem 1rem;
   }
   .social-card span{
-    font-size: 0.94rem;
+    font-size: 0.93rem;
   }
   /* tamanho do botão de download PDF  */
   .download-btn {
@@ -641,5 +641,47 @@ body {
 /* texto do campo de skill  */
 .download-text {
   font-size: 0.9rem;
+}
+.footer p{
+  font-size: 0.85rem;
+}
+}
+
+@media (max-width: 285px) {
+  /* Titulo do header */
+  .typed-title{
+    font-size: 1rem;
+  }
+  /* Foto de perfil do header  */
+  .profile-pic{
+    width: 40px;
+    height: 40px;
+  }
+  /* paragrafo logo apos o header  */
+  .intro-section p{
+    font-size: 0.89rem;
+  }
+  /* botão dark  */
+  .theme-toggle {
+    font-size: 0.8rem;
+  }
+  /* CARDS  */
+  .social-card{
+    padding: 1rem 1rem;
+  }
+  .social-card span{
+    font-size: 0.8rem;
+  }
+  /* tamanho do botão de download PDF  */
+  .download-btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.8rem;
+}
+/* texto do campo de skill  */
+.download-text {
+  font-size: 0.8rem;
+}
+.footer p{
+  font-size: 0.8rem;
 }
 }
