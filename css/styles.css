@@ -601,9 +601,11 @@ body {
   .theme-toggle {
     font-size: 1.1rem;
   }
-
   .social-card {
     padding: 1.5rem 1.8rem;
+  }
+  .social-card span{
+    font-size: 1.1rem;
   }
 }
 
