@@ -629,7 +629,10 @@ body {
   }
   /* CARDS  */
   .social-card{
-    padding: 0.9rem 1rem;
+    padding: 1rem 1rem;
+  }
+  .social-card span{
+    font-size: 0.94rem;
   }
   /* tamanho do botão de download PDF  */
   .download-btn {
