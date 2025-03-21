@@ -397,7 +397,7 @@ body {
 
 .hub-cta span {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
   margin: 0.2rem auto;
 }
 
