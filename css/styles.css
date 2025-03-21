@@ -397,7 +397,7 @@ body {
 
 .hub-cta span {
   display: block;
-  font-size: 0.8rem !important;
+  font-size: 0.8rem;
   margin: 0.2rem auto;
 }
 
@@ -607,6 +607,9 @@ body {
   .social-card span{
     font-size: 1.1rem;
   }
+  .hub-cta span {
+    font-size: 0.81rem;
+  }
 }
 
 @media (max-width: 344px) {
@@ -641,6 +644,9 @@ body {
 /* texto do campo de skill  */
 .download-text {
   font-size: 0.9rem;
+}
+.hub-cta span {
+  font-size: 0.7rem;
 }
 .footer p{
   font-size: 0.85rem;
@@ -680,6 +686,9 @@ body {
 /* texto do campo de skill  */
 .download-text {
   font-size: 0.8rem;
+}
+.hub-cta span {
+  font-size: 0.65rem;
 }
 .footer p{
   font-size: 0.8rem;
