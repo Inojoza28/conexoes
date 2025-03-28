@@ -437,6 +437,14 @@ body {
   background: linear-gradient(135deg, #646cff, #747bff);
 }
 
+.recnexus{
+  background-image: linear-gradient(
+    135deg,
+    #4A90E2 0%,
+    #6AC8F5 100%
+);
+}
+
 
 /* ===============================
            FOOTER
